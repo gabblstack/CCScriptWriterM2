@@ -1327,7 +1327,7 @@ class CCScriptWriter:
         while i <= numFiles:
             f = "data_{0:0>2}.".format(i)
             fileName = "{}ccs".format(f)
-            dataFile = open(os.path.join(o, fileName), "w")
+            dataFile = open(os.path.join(o, fileName), "w", encoding="utf-8")
             d = dataFile.write
             d(HEADER)
             # d("\ncommand start_load_str \"[19 02]\"")
@@ -1376,7 +1376,7 @@ class CCScriptWriter:
         print("Modifying CoilSnake project...")
         o = os.path.join(self.outputDirectory, os.path.pardir)
         for fileName in COILSNAKE_FILES:
-            csFile = open(os.path.join(o, fileName), "r")
+            csFile = open(os.path.join(o, fileName), "r", encoding="utf-8")
             yamlData = yaml.load(csFile, Loader=yaml.CSafeLoader)
             if fileName != "map_doors.yml":
                 for e, v in yamlData.items():
@@ -1414,7 +1414,7 @@ class CCScriptWriter:
                                 f = self.dataFiles[b]
                                 yamlData[e][s][n][a] = "{}.l_{}".format(f,
                                                                         hex(b))
-            csFile = open(os.path.join(o, fileName), "w")
+            csFile = open(os.path.join(o, fileName), "w", encoding="utf-8")
             output = yaml.dump(yamlData, default_flow_style=False,
                       Dumper=yaml.CSafeDumper)
             output = re.sub("Event Flag: (\d+)",
