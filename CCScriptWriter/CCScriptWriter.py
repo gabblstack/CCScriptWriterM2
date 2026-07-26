@@ -20,7 +20,7 @@ from functools import reduce
 
 # Based on Coop's M2 ccc fork
 CHARACTER_MAP = {
-    0x20: ' ',
+    0x20: '　',
     0x23: '$',
     0x24: '[24]',
     0x25: 'ー',
